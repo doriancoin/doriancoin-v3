@@ -1,0 +1,9 @@
+Building doriancoin
+
+See doc/readme-qt.rst for instructions on building doriancoin-QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of doriancoin.
+
+See doc/build-*.txt for instructions on building doriancoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of doriancoin.
