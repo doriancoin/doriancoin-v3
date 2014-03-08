@@ -886,7 +886,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 
 static const int64 nTargetTimespan =  10 * 60; // DorianCoin: 1 days
 static const int64 nTargetSpacing = 20; // DorianCoin: 2 minute blocks
-
+static const int64 nInterval = nTargetTimespan / nTargetSpacing;
+static const int64 nReTargetHistoryFact = 4;
 //
 // minimum amount of work that could possibly be required nTime after
 // minimum work required was nBase
