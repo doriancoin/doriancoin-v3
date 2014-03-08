@@ -36,7 +36,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xc3bc9c88e0388bc4e6fb7daed79b96a3cd4e0ed9808c44adb562c413d2422c85");
+uint256 hashGenesisBlock("0x8605948162c3cf34f09bfea80f27a39f5dd18b4912b255b9f6aaaa43f18ec2ab");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // doriancoin: starting difficulty is 1 / 2^12
 int64 SubsidyHalvingInterval = 2102400;
 CBlockIndex* pindexGenesisBlock = NULL;
@@ -870,9 +870,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     // Mining phase: Subsidy is cut in half every SubsidyHalvingInterval
     nSubsidy >>= (nHeight / SubsidyHalvingInterval);
     if(nHeight == SubsidyHalvingIntervalA)
-    {
-       nSubsidy = SubsidyHalvingIntervalB;
-        }
+    { nSubsidy = SubsidyHalvingIntervalB; }
     // Inflation phase: Subsidy reaches minimum subsidy
     // Network is rewarded for transaction processing with transaction fees and
     // the inflationary subsidy
@@ -2139,7 +2137,7 @@ bool LoadBlockIndex(bool fAllowNew)
         // Genesis Block:
 
         // Genesis block
-        const char* pszTimestamp = "In Satoshi We Trust - 2014";
+        const char* pszTimestamp = "In Satoshi Nakamoto We Trust - 2014";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2153,7 +2151,7 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nVersion = 1;
         block.nTime    = 1394176674;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 612610;
+        block.nNonce   = 1208103;
 
         if (fTestNet)
         {
@@ -2166,7 +2164,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
         
-		assert(block.hashMerkleRoot == uint256("0xcbf1898e864c1092541371437855158ded94ea51652036677c8b8aafc02b3b2e"));
+		assert(block.hashMerkleRoot == uint256("0x5b65ba0c7bc351e731117e333948899b0247bd1f61837a3fcc5a838ba1896cd0"));
 
         // If genesis block hash does not match, then generate new genesis hash.
         if (false && block.GetHash() != hashGenesisBlock)
